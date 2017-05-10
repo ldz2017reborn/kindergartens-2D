@@ -50,7 +50,7 @@ class Admin::KindergartensController < ApplicationController
     private
 
     def kindergarten_params
-      params.require(:kindergarten).permit(:title, :description)
+      params.require(:kindergarten).permit(:title, :description, :fee, :phone)
     end
 
 end
