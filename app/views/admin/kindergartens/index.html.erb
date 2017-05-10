@@ -8,6 +8,11 @@
   <% @kindergartens.each do |kindergarten| %>
   <tr>
     <td>
+
+      <%= render_kindergarten_status(kindergarten) %>
+      <%= link_to(kindergarten.title, admin_kindergarten_path(kindergarten)) %>
+    </td>
+    <td>
       <%= link_to(kindergarten.title, admin_kindergarten_path(kindergarten)) %>
     </td>
     <td>

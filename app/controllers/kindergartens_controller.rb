@@ -6,7 +6,7 @@ class KindergartensController < ApplicationController
   end
 
   def index
-    @kindergartens = Kindergarten.all
+    @kindergartens = Kindergarten.where(:is_hidden => false).order("created_at DESC")
   end
 
 
@@ -49,7 +49,7 @@ class KindergartensController < ApplicationController
    private
 
    def kindergarten_params
-     params.require(:kindergarten).permit(:title, :description, :fee, :phone)
+     params.require(:kindergarten).permit(:title, :description, :fee, :phone, :is_hidden)
    end
 
 
