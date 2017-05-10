@@ -1,0 +1,22 @@
+<div class="pull-right">
+  <%= link_to("Add a kindergarten", new_admin_kindergarten_path, :class => "btn btn-default" ) %>
+</div>
+
+<br><br>
+
+<table class="table table-bordered">
+  <% @kindergartens.each do |kindergarten| %>
+  <tr>
+    <td>
+      <%= link_to(kindergarten.title, admin_kindergarten_path(kindergarten)) %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_admin_kindergarten_path(kindergarten)) %>
+      <%= link_to("Destroy", admin_kindergarten_path(kindergarten), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+    </td>
+    <td>
+      <%= kindergarten.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>

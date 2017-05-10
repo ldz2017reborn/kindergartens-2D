@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :kindergartens
   root 'kindergartens#index'
 
+  namespace :admin do
+    resources :kindergartens
+  end
 end
