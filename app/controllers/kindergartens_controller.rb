@@ -3,7 +3,7 @@ class KindergartensController < ApplicationController
 
   def show
    @kindergarten = Kindergarten.find(params[:id])
-   @posts = @kindergarten.post
+   @posts = @kindergarten.post.order("created_at DESC")
 
    if @kindergarten.is_hidden
    flash[:warning] = "This Kindergarten already archived"
