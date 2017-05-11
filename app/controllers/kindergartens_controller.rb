@@ -3,6 +3,7 @@ class KindergartensController < ApplicationController
 
   def show
    @kindergarten = Kindergarten.find(params[:id])
+   @posts = @kindergarten.post
 
    if @kindergarten.is_hidden
    flash[:warning] = "This Kindergarten already archived"
