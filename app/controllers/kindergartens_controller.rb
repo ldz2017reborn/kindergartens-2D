@@ -32,6 +32,7 @@ class KindergartensController < ApplicationController
 
 
      if @kindergarten.save
+       current_user.join!(@kindergarten)
        redirect_to kindergartens_path
      else
        render :new
