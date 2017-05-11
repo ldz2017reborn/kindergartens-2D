@@ -11,7 +11,13 @@ class KindergartensController < ApplicationController
   end
 
   def index
-    @kindergartens = Kindergarten.where(:is_hidden => false).order("created_at DESC")
+    @kindergartens = case params[:order]
+                      when 'by_fee'
+                        Kindergarten.where(is_hidden: false).order("fee DESC")
+
+                      else
+                        Kindergarten.where(is_hidden: false).order("created_at DESC")
+                      end
   end
 
 

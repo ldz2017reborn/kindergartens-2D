@@ -1,22 +1,50 @@
-<div class="pull-right">
-  <%= link_to("Add a kindergarten", new_kindergarten_path, :class => "btn btn-default" ) %>
+<div class="dropdown clearfix pull-right">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      排序
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+        <li>
+          <%= link_to("学费", kindergartens_path(:order => "by_fee")) %>
+        </li>
+        <li>
+            <%= link_to("?", kindergartens_path(:order => "#")) %>
+
+        </li>
+        <li>
+          <%= link_to("按照发表时间排序", kindergartens_path ) %>
+
+        </li>
+    </ul>
 </div>
 
-
 <table class="table table-boldered">
-  <% @kindergartens.each do |kindergarten| %>
-  <tr>
+    <thead>
+        <tr>
+            <td>幼儿园</td>
+            <td>学费</td>
+            <td>电话</td>
+            <td>刊登时间</td>
+        </tr>
 
-    <td>
-      <%= link_to(kindergarten.title, kindergarten_path(kindergarten)) %>
-    </td>
-    <td>
-      <%= link_to("Edit", edit_kindergarten_path(kindergarten)) %> |
-      <%= link_to("Destroy", kindergarten_path(kindergarten), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
-    </td>
-    <td>
-      <%= kindergarten.created_at %>
-    </td>
-  </tr>
-  <% end %>
+    </thead>
+    <tbody>
+        <% @kindergartens.each do |kindergarten| %>
+        <tr>
+            <td>
+                <%= link_to(kindergarten.title, kindergarten_path(kindergarten)) %>
+            </td>
+            <td>
+                <%= kindergarten.fee %>
+            </td>
+            <td>
+                <%= kindergarten.phone %>
+            </td>
+            <td>
+                <%= kindergarten.created_at %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+
 </table>
