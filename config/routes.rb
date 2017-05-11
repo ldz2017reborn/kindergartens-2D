@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :kindergartens
+  resources :kindergartens do
+    resources :posts
+  end
   root 'kindergartens#index'
 
   namespace :admin do

@@ -9,4 +9,5 @@ class User < ApplicationRecord
       end
 
   has_many :kindergartens
+  has_many :posts
 end

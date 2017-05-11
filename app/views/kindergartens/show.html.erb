@@ -1,6 +1,7 @@
 <h1> <%= @kindergarten.title %> </h1>
 
 <p>
+  <%= link_to("Write a Post", new_kindergarten_post_path(@kindergarten), class: "btn btn-default pull-right")%>
   <%= simple_format(@kindergarten.description) %>
 
 </p>
