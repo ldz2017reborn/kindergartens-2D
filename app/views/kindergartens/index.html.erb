@@ -25,6 +25,7 @@
             <td>学费</td>
             <td>电话</td>
             <td>刊登时间</td>
+            <td>创建者</td>
         </tr>
 
     </thead>
@@ -42,6 +43,9 @@
             </td>
             <td>
                 <%= kindergarten.created_at %>
+            </td>
+            <td>
+                <%= kindergarten.user.email %>
             </td>
         </tr>
         <% end %>

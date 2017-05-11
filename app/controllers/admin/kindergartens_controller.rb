@@ -17,6 +17,7 @@ class Admin::KindergartensController < ApplicationController
 
     def create
       @kindergarten = Kindergarten.new(kindergarten_params)
+      @kindergarten.user = current_user
 
       if @kindergarten.save
         redirect_to admin_kindergartens_path
