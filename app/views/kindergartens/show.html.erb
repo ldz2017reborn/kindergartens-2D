@@ -2,7 +2,13 @@
 
 <p>
   <%= link_to("Write a Post", new_kindergarten_post_path(@kindergarten), class: "btn btn-default pull-right")%>
-
+  <span class="pull-right">
+  <% if current_user && current_user.is_member_of?(@group) %>
+    <label class="label label-success"> 群组成员 </label>
+  <% else %>
+    <label class="label label-warning"> 不是群组成员 </label>
+  <% end %>
+</span>
 </p>
 
    <table class="table">

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511035724) do
+ActiveRecord::Schema.define(version: 20170511062956) do
+
+  create_table "kindergarten_relationships", force: :cascade do |t|
+    t.integer  "kindergarten_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "kindergartens", force: :cascade do |t|
     t.string   "title"

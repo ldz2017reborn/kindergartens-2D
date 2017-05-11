@@ -8,6 +8,12 @@ class User < ApplicationRecord
          is_admin
       end
 
+      def is_member_of?(kindergarten)
+        participated_kindergartens.include?(kindergarten)
+      end
+
   has_many :kindergartens
   has_many :posts
+  has_many :kindergarten_relationships
+  has_many :participated_kindergartens, :through => :kindergarten_relationships, :source => :kindergarten
 end
