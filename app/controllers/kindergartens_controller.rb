@@ -3,6 +3,11 @@ class KindergartensController < ApplicationController
 
   def show
    @kindergarten = Kindergarten.find(params[:id])
+
+   if @kindergarten.is_hidden
+   flash[:warning] = "This Kindergarten already archived"
+   redirect_to root_path
+   end
   end
 
   def index

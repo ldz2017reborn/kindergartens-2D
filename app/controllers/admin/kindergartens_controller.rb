@@ -1,6 +1,7 @@
 class Admin::KindergartensController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
     before_action :require_is_admin
+    layout "admin"
 
     def show
       @kindergarten = Kindergarten.find(params[:id])
@@ -44,6 +45,22 @@ class Admin::KindergartensController < ApplicationController
 
       redirect_to admin_kindergartens_path
     end
+
+
+    def publish
+      @kindergarten = Kindergarten.find(params[:id])
+      @kindergarten.is_hidden = false
+      @kindergarten.save
+      redirect_to :back
+    end
+
+    def hide
+      @kindergarten = Kindergarten.find(params[:id])
+      @kindergarten.is_hidden = true
+      @kindergarten.save
+      redirect_to :back
+    end
+
 
 
 

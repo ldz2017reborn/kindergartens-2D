@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   root 'kindergartens#index'
 
   namespace :admin do
-    resources :kindergartens
+    resources :kindergartens do
+      member do
+       post :publish
+       post :hide
+      end
+    end
   end
 end

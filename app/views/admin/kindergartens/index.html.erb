@@ -13,11 +13,17 @@
       <%= link_to(kindergarten.title, admin_kindergarten_path(kindergarten)) %>
     </td>
     <td>
-      <%= link_to(kindergarten.title, admin_kindergarten_path(kindergarten)) %>
-    </td>
-    <td>
       <%= link_to("Edit", edit_admin_kindergarten_path(kindergarten)) %>
       <%= link_to("Destroy", admin_kindergarten_path(kindergarten), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+    </td>
+    <td>
+
+      <% if kindergarten.is_hidden %>
+
+        <%= link_to("Publish", publish_admin_kindergarten_path(kindergarten) , :method => :post, :class => "btn btn-xs btn-default") %>
+      <% else %>
+        <%= link_to("Hide", hide_admin_kindergarten_path(kindergarten), :method => :post,  :class => "btn btn-xs btn-default") %>
+      <% end %>
     </td>
     <td>
       <%= kindergarten.created_at %>

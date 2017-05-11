@@ -1,9 +1,9 @@
 module KindergartensHelper
     def render_kindergarten_status(kindergarten)
       if kindergarten.is_hidden
-        "(Hidden)"
+        content_tag(:span, "", :class => "fa fa-lock")
       else
-        "(Public)"
+        content_tag(:span, "", :class => "fa fa-globe")
       end
     end
 end
