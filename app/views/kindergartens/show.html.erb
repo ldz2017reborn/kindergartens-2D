@@ -3,10 +3,12 @@
 <p>
   <%= link_to("Write a Post", new_kindergarten_post_path(@kindergarten), class: "btn btn-default pull-right")%>
   <span class="pull-right">
-  <% if current_user && current_user.is_member_of?(@group) %>
+  <% if current_user && current_user.is_member_of?(@kindergarten) %>
     <label class="label label-success"> 群组成员 </label>
+        <%= link_to("Quit kindergarten", quit_kindergarten_path(@kindergarten), method: :post, class: "btn btn-default") %>
   <% else %>
     <label class="label label-warning"> 不是群组成员 </label>
+        <%= link_to("Join kindergarten", join_kindergarten_path(@kindergarten), method: :post, class: "btn btn-default") %>
   <% end %>
 </span>
 </p>

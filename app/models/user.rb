@@ -12,6 +12,14 @@ class User < ApplicationRecord
         participated_kindergartens.include?(kindergarten)
       end
 
+      def join!(kindergarten)
+        participated_kindergartens << kindergarten
+      end
+
+      def quit!(kindergarten)
+        participated_kindergartens.delete(kindergarten)
+      end
+
   has_many :kindergartens
   has_many :posts
   has_many :kindergarten_relationships

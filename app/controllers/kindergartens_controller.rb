@@ -1,5 +1,5 @@
 class KindergartensController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :join, :quit]
 
   def show
    @kindergarten = Kindergarten.find(params[:id])
@@ -60,17 +60,38 @@ class KindergartensController < ApplicationController
       redirect_to kindergartens_path
     end
 
+  def join
+   @kindergarten = Kindergarten.find(params[:id])
+
+    if !current_user.is_member_of?(@kindergarten)
+      current_user.join!(@kindergarten)
+      flash[:notice] = "加入本讨论版成功！"
+    else
+      flash[:warning] = "你已经是本讨论版成员了！"
+    end
+
+    redirect_to kindergarten_path(@kindergarten)
+  end
+
+  def quit
+    @kindergarten = Kindergarten.find(params[:id])
+
+    if current_user.is_member_of?(@kindergarten)
+      current_user.quit!(@kindergarten)
+      flash[:alert] = "已退出本讨论版！"
+    else
+      flash[:warning] = "你不是本讨论版成员，怎么退出 XD"
+    end
+
+    redirect_to kindergarten_path(@kindergarten)
+  end
+
+
    private
 
    def kindergarten_params
      params.require(:kindergarten).permit(:title, :description, :fee, :phone, :is_hidden)
    end
-
-
-
-
-
-
 
 
 end
