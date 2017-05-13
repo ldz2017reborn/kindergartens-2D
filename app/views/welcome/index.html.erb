@@ -32,7 +32,7 @@
           </a>
           <ul class="dropdown-menu">
             <% if current_user.admin? %>
-            <li><%= link_to("管理员", admin_kindergartens_path) %></li>
+            <li><%= link_to("后台", admin_kindergartens_path) %></li>
             <% end %>
             <li><%= link_to("所有旅程", kindergartens_path) %></li>
             <li> <%= link_to("我关注的行程", kindergartens_path) %></li>
@@ -279,5 +279,6 @@
   </div>
 </div>
 
+<%= render "common/footer" %>
 
 </body>

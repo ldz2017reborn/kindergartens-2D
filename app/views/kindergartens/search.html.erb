@@ -1,0 +1,36 @@
+<div>
+  <br>
+<% if @query_string.blank? %>
+    <div class="search-info-title">
+      Sorry, The search content cannot be blank, please type some product into to search.
+    </div>
+
+  <% elsif @kindergartens.blank? %>
+    <br>
+    <h3 class="search-info-title">sorry，您搜索的信息不存在，请输入其他关键字试试看哦</h3>
+  <% else %>
+    <h3 class="search-info-title"> 有关"<%= @query_string %>"的信息 </h3>
+    <div class="search-result">
+
+      <div class="row jobs-show0"></div>
+      <div class="Kindergarten-table">
+        <% @kindergartens.each do |kindergarten| %>
+        <div class="row kindergarten-show">
+
+          <div class="col-md-12 col-lg-9 col-lg-offset-1">
+
+            <div class="pull-right">
+              发布时间：<%= kindergarten.created_at.to_date %>
+            </div>
+            <p ><%= link_to(render_highlight_content(kindergarten,@query_string),kindergarten_path(kindergarten)) %></p>
+
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= will_paginate(@kindergartens, renderer: BootstrapPagination::Rails) %>
+    </div>
+  <% end %>
+</div>

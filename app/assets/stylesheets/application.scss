@@ -274,9 +274,9 @@ h4 {
 
 /*footer测试*/
 footer {
-    background-color:#44ABE7;
-    color: #F5F5F5;
-    padding: 32px;
+  background-color:#44ABE7;
+  color: #F5F5F5;
+  padding: 32px;
 
 }
 
@@ -326,6 +326,12 @@ footer a:hover {
 
 /*navbar text*/
 /* Add a dark background color with a little bit see-through */
+
+#search-id {
+  width: 200px;
+  padding-top: 7px;
+}
+
 .navbar {
     font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
 }
