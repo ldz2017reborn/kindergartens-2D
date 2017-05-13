@@ -1,1 +1,283 @@
-<h1> Hello World! </h1>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/kindergartens">途行</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#good">如何途行</a></li>
+        <li><a href="#tour">发现途行</a></li>
+        <li><a href="#contact">了解途行</a></li>
+          <% if !current_user %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">加入途行
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#login-modal">登录</a></li>
+          </ul>
+        </li>
+        <% else %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            欢迎回来
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_user.admin? %>
+            <li><%= link_to("管理员", admin_kindergartens_path) %></li>
+            <% end %>
+            <li><%= link_to("所有旅程", kindergartens_path) %></li>
+            <li> <%= link_to("我关注的行程", kindergartens_path) %></li>
+            <li> <%= link_to("我报名的旅程", kindergartens_path) %></li>
+            <li class="divider"> </li>
+            <li><%= link_to("登出", destroy_user_session_path, method: :delete) %></li>
+          </ul>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div id="cop1" class="item active">
+      <img src= "http://ongoo1pyy.bkt.clouddn.com/p1.png" >
+      <div class="carousel-caption">
+        <h2>途&ensp;行</h2>
+        <p>你会了解旅行不是只有美图和朋友圈</p>
+      </div>
+    </div>
+
+    <div id="cop2" class="item">
+      <img src= "http://ongoo1pyy.bkt.clouddn.com/p3.png" >
+      <div class="carousel-caption">
+        <h2>途&ensp;行</h2>
+        <p>你会发现生命原来可以很不一样</p>
+      </div>
+    </div>
+
+    <div id="cop3" class="item">
+      <img src= "http://ongoo1pyy.bkt.clouddn.com/p2.png" >
+      <div class="carousel-caption">
+        <h2>途&ensp;行</h2>
+        <p>你能遇见更多和你一样不甘平庸的人</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+<div  id="good" class="container text-center" style=
+" width: 100%;margin-bottom: 5px">
+  <h3>途行</h3>
+  <br>
+  <div class="row slideanim">
+  <div class="col-sm-4">
+    <p>你将找到完全不同的旅行方式</p>
+    <p class="text-center"><strong>旅程</strong></p>
+    <i class="fa fa-angle-double-down" aria-hidden="true"></i><br>
+    <a href="#demo" data-toggle="collapse">
+      <img src="http://ongoo1pyy.bkt.clouddn.com/s1.png" class="img-circle person" a>
+    </a>
+    <div id="demo" class="collapse">
+      <p>不论是峻峭的高山</p>
+      <p>还是神秘的深林</p>
+      <p>都蕴藏着惊心动魄的美丽</p>
+      <p>只有深入其中才能发觉</p>
+      <a href="/jobs" id="begin" class="btn-job">进入途行</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <p>你能遇见共同前行的旅行伙伴</p>
+    <p class="text-center"><strong>朋友</strong></p>
+    <i class="fa fa-angle-double-down" aria-hidden="true"></i><br>
+    <a href="#demo2" data-toggle="collapse">
+      <img src="http://ongoo1pyy.bkt.clouddn.com/s2.png" class="img-circle person" >
+    </a>
+    <div id="demo2" class="collapse">
+      <p>在跨越艰难险阻</p>
+      <p>在经历风雨过后</p>
+      <p>任何情感都会</p>
+      <p>愈发真挚</p>
+      <a href="/jobs" id="begin" class="btn-job">进入途行</a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <p>你会获得意想不到的旅行体验</p>
+    <p class="text-center"><strong>经历</strong></p>
+    <i class="fa fa-angle-double-down" aria-hidden="true"></i><br>
+    <a href="#demo3" data-toggle="collapse">
+      <img src="http://ongoo1pyy.bkt.clouddn.com/s3.png" class="img-circle person" >
+    </a>
+    <div id="demo3" class="collapse">
+      <p>从神山上体会生命的意义</p>
+      <p>在仙湖旁洞察人生的价值</p>
+      <p>所有一切不平凡的经历</p>
+      <p>都需要一个伟大的开始</p>
+      <a href="/jobs" id="begin" class="btn-job">进入途行</a>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div id="tour" class="bg-1"  style="margin-bottom: 5px">
+  <div  class="container">
+    <h2 class="text-center">发现途行</h2>
+    <p class="text-center">精品徒步线路<br> 找到志同道合的同伴，发现前所未见的景色 </p>
+  </div>
+
+  <div  class="row text-center slideanim">
+    <div  class="col-sm-4">
+      <div id="trip1" class="thumbnail">
+        <img src="http://ongoo1pyy.bkt.clouddn.com/sanxia.png">
+        <p><strong>三峡</strong></p>
+        <p>探寻瞿塘天险古栈道</p>
+        <a href="/jobs/1" class="btn-job">了解旅程</a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div id="trip2" class="thumbnail">
+        <img src="http://ongoo1pyy.bkt.clouddn.com/yading.png">
+        <p><strong>亚丁</strong></p>
+        <p>雪山中寻找人生的意义</p>
+        <a href="/jobs/2" class="btn-job">了解旅程</a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div id="trip3" class="thumbnail">
+        <img src="http://ongoo1pyy.bkt.clouddn.com/motuo.png">
+        <p><strong>墨脱</strong></p>
+        <p>在雅鲁藏布挑战生命的极限</p>
+        <a href="/jobs/3" class="btn-job">了解旅程</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="contact" class="container slideanim"style=
+  " width: 100% ;margin-bottom: 5px">
+  <h3 class="text-center"> 了解途行</h3><br><br>
+
+    <div class="col-md-4">
+       <h4>联系我们:</h4>
+      <p class="text">&emsp;&emsp;如果您有优质的户外徒步路线，或者您是资深的户外活动组织者，
+        请您联系我们，和我们一起让更多的人爱上户外运动，爱上徒步旅行</p>
+      <h5>联系方式:</h5>
+      <p><span class="glyphicon glyphicon-map-marker"></span>湖北，武汉</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +86 12345678900</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: godluos@gmail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div id="lianxi" class="thumbnail">
+       <img src="http://ongoo1pyy.bkt.clouddn.com/help.png" alt="help">
+     </div>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="loginmodal-container">
+       <h2>登录</h2>
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class="form-inputs">
+           <%= f.input :email, required: false, autofocus: true,:label => "注册邮箱" %>
+           <%= f.input :password, required: false,:label => "输入密码"  %>
+           <%= f.input :remember_me, :label => "记住我",as: :boolean if devise_mapping.rememberable? %>
+         </div>
+         <div class="form-actions">
+           <%= f.button :submit, "登入" %>
+         </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="loginmodal-container">
+       <h2>登录</h2>
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class="form-inputs">
+           <%= f.input :email, required: false, autofocus: true,:label => "注册邮箱" %>
+           <%= f.input :password, required: false,:label => "输入密码"  %>
+           <%= f.input :remember_me, :label => "记住我",as: :boolean if devise_mapping.rememberable? %>
+         </div>
+         <div class="form-actions">
+           <%= f.button :submit, "登入" %>
+         </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="loginmodal-container">
+       <h2>登录</h2>
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class="form-inputs">
+           <%= f.input :email, required: false, autofocus: true,:label => "注册邮箱" %>
+           <%= f.input :password, required: false,:label => "输入密码"  %>
+           <%= f.input :remember_me, :label => "记住我",as: :boolean if devise_mapping.rememberable? %>
+         </div>
+         <div class="form-actions">
+           <%= f.button :submit, "登入" %>
+         </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container ">
+        <h2>注册</h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email,:label => "注册邮箱", required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length}
+          characters minimum" if @minimum_password_length),:label => "输入密码" %>
+          <%= f.input :password_confirmation, required: true, :label => "再次输入" %>
+        </div>
+        <div class="form-actions">
+            <%= f.button :submit, "注册" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+</body>

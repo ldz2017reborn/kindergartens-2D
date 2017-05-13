@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     resources :posts
   end
-  root 'kindergartens#index'
+  root 'welcome#index'
 
   namespace :admin do
     resources :kindergartens do
