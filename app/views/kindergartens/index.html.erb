@@ -18,37 +18,40 @@
     </ul>
 </div>
 
-<table class="table table-boldered">
-    <thead>
-        <tr>
-            <td>幼儿园</td>
-            <td>学费</td>
-            <td>电话</td>
-            <td>刊登时间</td>
-            <td>创建者</td>
-        </tr>
 
-    </thead>
-    <tbody>
-        <% @kindergartens.each do |kindergarten| %>
-        <tr>
-            <td>
-                <%= link_to(kindergarten.title, kindergarten_path(kindergarten)) %>
-            </td>
-            <td>
-                <%= kindergarten.fee %>
-            </td>
-            <td>
-                <%= kindergarten.phone %>
-            </td>
-            <td>
-                <%= kindergarten.created_at %>
-            </td>
-            <td>
-                <%= kindergarten.user.email %>
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
 
-</table>
+<div class="kindergarten-list-back">
+
+<div class="main-box">
+  <% @kindergartens.each do |kindergarten| %>
+  <div class="col-md-9 col-xs-9 kindergarten-box row">
+    <div class="kindergarten-back">
+      <div class="info">
+        <div class="info-top">
+          <h3><%= link_to(kindergarten.title, kindergarten_path(kindergarten), target: "_blank" )%></h3><span><%= kindergarten.created_at.strftime("%Y-%m-%d") %></span>
+        </div>
+        <div class="info-mid">
+          ￥<%= kindergarten.fee %>
+        </div>
+
+      </div>
+
+        <div class="connact">
+          <div class="connact-mid">
+          联系电话：<%= kindergarten.phone %>
+          <br/>
+          <sapn class="fa fa-envelope"></sapn><span><%= kindergarten.user.email %></span>
+          <br/>
+
+        </div>
+      </div>
+
+
+  </div>
+</div>
+<% end %>
+</div>
+<div class="text-center">
+<%= will_paginate @kindergartens, renderer: BootstrapPagination::Rails %>
+</div>
+</div>

@@ -388,3 +388,87 @@ footer a:hover {
 }
 /*navbar text end*/
 /*welcome end*/
+
+/*app/views/kindergartens/index.html.erb start*/
+.kindergarten-list-back {
+  background: asset-data-url("jumbotron.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+  padding-bottom: 10px;
+}
+
+.kindergarten-back{
+  background: asset-data-url("kindergarten back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom:  120px;
+  background-position: center;
+}
+/*start*/
+.kindergarten-box{
+  border: 1.5px solid #ddd;
+  background-color: #fff;
+  margin-top: 12.5px;
+  margin-left: 150px;
+  padding: 15px 15px 7.5px 15px;
+  color: #555;
+  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+  font-size: 16px;
+  box-shadow: 1px 1px 5px #ccc;
+
+  div{
+    margin-bottom: 5px;
+  }
+
+  .info{
+      display: inline;
+      float: left;
+  }
+
+  .info-top{
+    margin-top: 15px;
+    h3{
+      margin-left: 100px;
+      display: inline;
+      font-size: 20px;
+    }
+    span{
+      margin-left: 10px;
+      display: inline;
+      color: #82B1FF;
+    }
+  }
+
+  .info-mid{
+    color: #FFA726;
+    letter-spacing: -1px;
+    margin-left: 100px;
+  }
+
+  .info-bot{
+    .category{
+      border: 1px solid #ccc;
+      border-radius: 2.5px;
+      padding: 5px 7.5px 5px 7.5px;
+      font-size: 12px;
+    }
+  }
+
+  .connact{
+    float: right;
+    display: inline;
+    width: 35%;
+
+    span{
+      width: 20px;
+      margin-left: 5px;
+    }
+  }
+
+  .connact-bot{
+    margin-left: 3.5px;
+    letter-spacing: 1px;
+  }
+}
+/*end*/
+/*app/views/kindergartens/index.html.erb end*/

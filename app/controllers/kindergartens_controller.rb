@@ -14,12 +14,12 @@ class KindergartensController < ApplicationController
 
   def index
     @kindergartens = case params[:order]
-                      when 'by_fee'
-                        Kindergarten.where(is_hidden: false).order("fee DESC")
-
-                      else
-                        Kindergarten.where(is_hidden: false).order("created_at DESC")
-                      end
+    when 'by_fee'
+      Kindergarten.where(is_hidden: false).order("fee DESC")
+    else
+      Kindergarten.where(is_hidden: false).order("created_at DESC")
+    end
+    @kindergartens = @kindergartens.paginate(:page => params[:page], :per_page => 6)
   end
 
 
