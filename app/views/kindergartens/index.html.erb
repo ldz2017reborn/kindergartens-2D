@@ -1,3 +1,14 @@
+<div class="col-md-12">
+
+
+  <% if !current_user %>
+    <h1 class="text-center">Welcom to WORK.LIFE <span>Review published jobs</span> </h1>
+  <% else %>
+  <h1 class="text-center">Welcom to WORK.LIFE <span>Seek a good job!</span> </h1>
+  <% end %>
+    <form>
+
+
 <div class="dropdown clearfix pull-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       排序
@@ -18,40 +29,37 @@
     </ul>
 </div>
 
+<div class="tab">
+      	<ul class="tabs">
+      		<li><a href="" >Form</a></li>
+      		<li><a href="" >Table</a></li>
+      	</ul>
 
+        <div class="tab_content">
 
-<div class="kindergarten-list-back">
+      		<div class="tabs_item">
+            <%= render partial: "index_form", collection: @kindergartens, as: :kindergarten %>
+		      </div><!-- / tabs_item -->
 
-<div class="main-box">
-  <% @kindergartens.each do |kindergarten| %>
-  <div class="col-md-9 col-xs-9 kindergarten-box row">
-    <div class="kindergarten-back">
-      <div class="info">
-        <div class="info-top">
-          <h3><%= link_to(kindergarten.title, kindergarten_path(kindergarten), target: "_blank" )%></h3><span><%= kindergarten.created_at.strftime("%Y-%m-%d") %></span>
-        </div>
-        <div class="info-mid">
-          ￥<%= kindergarten.fee %>
-        </div>
-
+      		<div class="tabs_item">
+            <div class="container_table">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>名称</th>
+                    <th>价格</th>
+                    <th>联系电话</th>
+                    <th>E-mail</th>
+                  </tr>
+                </thead>
+                <%= render partial: "index_table", collection: @kindergartens, as: :kindergarten %>
+              </table>
+            </div>
+      		</div> <!-- / tabs_item -->
+          <div class="text-center">
+            <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+          </div>
+      	</div> <!-- / tab_content -->
       </div>
-
-        <div class="connact">
-          <div class="connact-mid">
-          联系电话：<%= kindergarten.phone %>
-          <br/>
-          <sapn class="fa fa-envelope"></sapn><span><%= kindergarten.user.email %></span>
-          <br/>
-
-        </div>
-      </div>
-
-
+    </form>
   </div>
-</div>
-<% end %>
-</div>
-<div class="text-center">
-<%= will_paginate @kindergartens, renderer: BootstrapPagination::Rails %>
-</div>
-</div>
