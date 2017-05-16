@@ -1,13 +1,12 @@
 <div class="col-md-12">
-
-
+  <div class="row">
+  <div class="kindergarten-index-back">
   <% if !current_user %>
     <h1 class="text-center">Welcom to WORK.LIFE <span>Review published jobs</span> </h1>
   <% else %>
   <h1 class="text-center">Welcom to WORK.LIFE <span>Seek a good job!</span> </h1>
   <% end %>
     <form>
-
 
 <div class="dropdown clearfix pull-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -27,7 +26,7 @@
 
         </li>
     </ul>
-</div>
+  </div>
 
 <div class="tab">
       	<ul class="tabs">
@@ -35,27 +34,31 @@
       		<li><a href="" >Table</a></li>
       	</ul>
 
+
         <div class="tab_content">
 
       		<div class="tabs_item">
             <%= render partial: "index_form", collection: @kindergartens, as: :kindergarten %>
-		      </div><!-- / tabs_item -->
+		      </div><!-- app/views/kindergartens/_index_form.html.erb -->
+          <div class="col-xs-10 col-md-10 col-sm-10">
+        		<div class="tabs_item">
+              <div class="container_table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>名称</th>
+                      <th>价格</th>
+                      <th>联系电话</th>
+                      <th>E-mail</th>
+                    </tr>
+                  </thead>
+                  <%= render partial: "index_table", collection: @kindergartens, as: :kindergarten %>
+                </table>
+              </div>
+        		</div>
+          </div>
 
-      		<div class="tabs_item">
-            <div class="container_table">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>名称</th>
-                    <th>价格</th>
-                    <th>联系电话</th>
-                    <th>E-mail</th>
-                  </tr>
-                </thead>
-                <%= render partial: "index_table", collection: @kindergartens, as: :kindergarten %>
-              </table>
-            </div>
-      		</div> <!-- / tabs_item -->
+           <!-- app/views/kindergartens/_index_table.html.erb -->
           <div class="text-center">
             <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
           </div>
@@ -63,3 +66,5 @@
       </div>
     </form>
   </div>
+</div>
+</div>
