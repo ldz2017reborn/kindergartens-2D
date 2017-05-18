@@ -1,13 +1,17 @@
-
+<div class="posts-new-back">
+<blockquote class="quote-box">
 <h2 class="text-center">新增文章</h2>
+<hr>
 
-<div class="col-md-4 col-md-offset-4">
+<div class="posts-form">
   <%= simple_form_for [@kindergarten,@post] do |f| %>
-    <div class="form-kindergarten">
-      <%= f.input :content, input_html: { class: "form-control"} %>
-    </div>
-    <div class="form-actions">
+  <%= f.input :content, input_html: { class: "form-control"} %>
+</div>
+<hr>
+
+    <div class="posts-btn">
       <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary"%>
     </div>
   <% end %>
+</blockquote>
 </div>

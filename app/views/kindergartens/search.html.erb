@@ -1,4 +1,4 @@
-<div>
+<div class="search-back">
   <br>
 <% if @query_string.blank? %>
     <div class="search-info-title">
@@ -7,28 +7,32 @@
 
   <% elsif @kindergartens.blank? %>
     <br>
-    <h3 class="search-info-title">sorry，您搜索的信息不存在，请输入其他关键字试试看哦</h3>
+    <h3 class="search-info-title text-center">sorry，您搜索的信息不存在，请输入其他关键字试试看哦</h3><br/>
   <% else %>
-    <h3 class="search-info-title"> 有关"<%= @query_string %>"的信息 </h3>
-    <div class="search-result">
+    <h3 class="search-info-title text-center"> 有关"<%= @query_string %>"的信息 </h3>
 
-      <div class="row jobs-show0"></div>
-      <div class="Kindergarten-table">
-        <% @kindergartens.each do |kindergarten| %>
-        <div class="row kindergarten-show">
+      <div class="search-table">
 
-          <div class="col-md-12 col-lg-9 col-lg-offset-1">
+        <table class="table">
 
-            <div class="pull-right">
+          <thead>
+            <tr>
+              <th>搜索内容</th>
+              <th>发布时间</th>
+            </tr>
+          </thead>
+          <% @kindergartens.each do |kindergarten| %>
+          <tr>
+            <td>
+              <%= link_to(render_highlight_content(kindergarten,@query_string),kindergarten_path(kindergarten)) %>
+            </td>
+            <td>
               发布时间：<%= kindergarten.created_at.to_date %>
-            </div>
-            <p ><%= link_to(render_highlight_content(kindergarten,@query_string),kindergarten_path(kindergarten)) %></p>
-
-          </div>
-        </div>
-        <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
       </div>
-    </div>
     <div class="text-center">
       <%= will_paginate(@kindergartens, renderer: BootstrapPagination::Rails) %>
     </div>

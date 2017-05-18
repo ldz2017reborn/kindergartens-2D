@@ -65,7 +65,7 @@ class KindergartensController < ApplicationController
   def join
    @kindergarten = Kindergarten.find(params[:id])
 
-    if !current_user.is_member_of?(@kindergarten)
+    if current_user && current_user.is_member_of?(@kindergarten)
       current_user.join!(@kindergarten)
       flash[:notice] = "加入本讨论版成功！"
     else
@@ -78,7 +78,7 @@ class KindergartensController < ApplicationController
   def quit
     @kindergarten = Kindergarten.find(params[:id])
 
-    if current_user.is_member_of?(@kindergarten)
+    if current_user && current_user.is_member_of?(@kindergarten)
       current_user.quit!(@kindergarten)
       flash[:alert] = "已退出本讨论版！"
     else

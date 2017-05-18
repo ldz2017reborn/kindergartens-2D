@@ -1,11 +1,11 @@
 <!-- <div class="kindergarten-list-back"> -->
   <div class="main-box">
-    <div class="col-xs-9 col-sm-9 col-lg-9 kindergarten-box row">
+    <div class="kindergarten-box row">
       <div class="kindergarten-back">
 
         <div class="info">
         <div class="info-top">
-          <h3><%= link_to(kindergarten.title, kindergarten_path(kindergarten), target: "_blank" )%></h3><span><%= kindergarten.created_at.strftime("%Y-%m-%d") %></span>
+          <a><%= link_to(kindergarten.title, kindergarten_path(kindergarten), target: "_blank" )%></a><span><%= kindergarten.created_at.strftime("%Y-%m-%d") %></span>
         </div>
         <div class="info-mid">
           ￥<%= kindergarten.fee %>

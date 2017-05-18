@@ -1,13 +1,14 @@
 <div class="col-md-12">
   <div class="row">
   <div class="kindergarten-index-back">
-  <% if !current_user %>
-    <h1 class="text-center">Welcom to WORK.LIFE <span>Review published jobs</span> </h1>
+  <% if current_user && current_user.admin? %>
+    <h1 class="text-center"><br/>Welcom back to Edelweiss!<br/>欢迎回到雪绒花！</h1>
   <% else %>
-  <h1 class="text-center">Welcom to WORK.LIFE <span>Seek a good job!</span> </h1>
+  <h1 class="text-center"><br/>Welcom to Edelweiss！<br/>欢迎来到雪绒花！</h1>
   <% end %>
     <form>
 
+<div class="dropdown2">
 <div class="dropdown clearfix pull-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       排序
@@ -27,6 +28,7 @@
         </li>
     </ul>
   </div>
+</div>
 
 <div class="tab">
       	<ul class="tabs">
@@ -40,13 +42,12 @@
       		<div class="tabs_item">
             <%= render partial: "index_form", collection: @kindergartens, as: :kindergarten %>
 		      </div><!-- app/views/kindergartens/_index_form.html.erb -->
-          <div class="col-xs-10 col-md-10 col-sm-10">
         		<div class="tabs_item">
               <div class="container_table">
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>名称</th>
+                      <th>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;名称</th>
                       <th>价格</th>
                       <th>联系电话</th>
                       <th>E-mail</th>
@@ -56,7 +57,6 @@
                 </table>
               </div>
         		</div>
-          </div>
 
            <!-- app/views/kindergartens/_index_table.html.erb -->
           <div class="text-center">
