@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   resources :kindergartens do
     member do
+      put"like",to:"kindergartens#upvote"
+    end
+    member do
       post :join
       post :quit
     end

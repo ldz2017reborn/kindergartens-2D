@@ -8,4 +8,5 @@ class Kindergarten < ApplicationRecord
   validates :fee, presence: true
   validates :phone, presence: true
 
+  acts_as_votable
 end

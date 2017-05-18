@@ -22,6 +22,11 @@ class KindergartensController < ApplicationController
     @kindergartens = @kindergartens.paginate(:page => params[:page], :per_page => 6)
   end
 
+  def upvote
+    @kindergarten = Kindergarten.find(params[:id])
+    @kindergarten.upvote_by current_user
+    redirect_to :back
+  end
 
    def new
      @kindergarten = Kindergarten.new
@@ -112,7 +117,7 @@ class KindergartensController < ApplicationController
    private
 
    def kindergarten_params
-     params.require(:kindergarten).permit(:title, :description, :fee, :phone, :is_hidden)
+     params.require(:kindergarten).permit(:title, :description, :fee, :phone, :is_hidden, :upovte)
    end
 
 
