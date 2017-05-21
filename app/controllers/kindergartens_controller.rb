@@ -13,6 +13,7 @@ class KindergartensController < ApplicationController
   end
 
   def index
+    @qr = RQRCode::QRCode.new(kindergartens_url.to_s, :size => 6, :level => :h )
     @kindergartens = case params[:order]
     when 'by_fee'
       Kindergarten.where(is_hidden: false).order("fee DESC")

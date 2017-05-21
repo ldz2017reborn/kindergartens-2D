@@ -40,6 +40,7 @@ gem "seo_helper"
 gem 'awesome_rails_console'
 gem 'intercom-rails'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'rqrcode'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
